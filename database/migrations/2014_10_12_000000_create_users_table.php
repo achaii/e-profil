@@ -15,11 +15,26 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('nama');
+            $table->string('email');
             $table->string('password');
-            $table->rememberToken();
+            $table->string('password_look');
+            $table->string('nip_baru');
+            $table->string('nip_lama');
+            $table->integer('nomor_npwp')->nullable();
+            $table->string('tanggal_npwp')->nullable();
+            $table->integer('nomor_ktp')->nullable();
+            $table->integer('nomor_bpjs')->nullable();
+            $table->string('tanggal_bpjs')->nullable();
+            $table->longText('alamat')->nullable();
+            $table->string('gander')->nullable();
+            $table->string('tampat_lahir')->nullable();
+            $table->string('tanggal_lahir')->nullable();
+            //$table->string('golongan_pangkat')->nullable();
+            //$table->string('pendidikan')->nullable();
+            $table->string('jabatan')->nullable();
+            $table->string('unit_kerja')->nullable();
+            $table->string('sub_unit_kerja')->nullable();
             $table->timestamps();
         });
     }
