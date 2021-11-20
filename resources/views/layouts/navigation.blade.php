@@ -15,6 +15,15 @@
                     <x-nav-link :href="route('profil')" :active="request()->routeIs('profil')">
                         {{ __('Profil Pegawai') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('pegawai')" :active="request()->routeIs('pegawai')">
+                        {{ __('Data Pegawai') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('jabatan')" :active="request()->routeIs('jabatan')">
+                        {{ __('Data Jabatan') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('unit_kerja')" :active="request()->routeIs('unit_kerja')">
+                        {{ __('Data Unit Kerja') }}
+                    </x-nav-link>
                 </div>
             </div>
 
