@@ -13,13 +13,12 @@ class PangkatGolongan extends Migration
      */
     public function up()
     {
-        Schema::create('pangkat_golongan', function (Blueprint $table) {
+        Schema::create('riwayat_pangkat_golongan', function (Blueprint $table) {
             $table->id();
-            $table->integer('nip_baru')->nullable();
-            $table->string('golongan')->nullable();
-            $table->string('pangkat')->nullable();
-            $table->string('tanggal_sk')->nullable();
-            $table->string('nomor_sk')->nullable();
+            $table->bigInteger('nip_baru')->nullable();
+            $table->string('pangkat_golongan')->nullable();
+            $table->string('tanggal_surat_pangkat_golongan')->nullable();
+            $table->string('nomor_surat_pangkat_golongan')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class PangkatGolongan extends Migration
      */
     public function down()
     {
-        Schema::drop('pangkat_golongan');
+        Schema::drop('riwayat_pangkat_golongan');
     }
 }

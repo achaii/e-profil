@@ -13,9 +13,12 @@ class Jabatan extends Migration
      */
     public function up()
     {
-        Schema::create('jabatan', function (Blueprint $table) {
+        Schema::create('riwayat_jabatan', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('nip_baru')->nullable();
             $table->string('nama_jabatan')->nullable();
+            $table->string('nomor_surat_jabatan')->nullable();
+            $table->string('tanggal_surat_jabatan')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class Jabatan extends Migration
      */
     public function down()
     {
-        Schema::drop('jabatan');
+        Schema::drop('riwayat_jabatan');
     }
 }

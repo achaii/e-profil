@@ -17,8 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/profil', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('profil');
+
+Route::get('/data-pegawai', function () {
+    return view('layouts.page.pegawai');
+})->middleware(['auth'])->name('data-pegawai');
 
 require __DIR__.'/auth.php';

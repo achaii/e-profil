@@ -16,25 +16,26 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('email');
-            $table->string('password');
-            $table->string('password_look');
-            $table->string('nip_baru');
-            $table->string('nip_lama');
+            $table->string('email')->nullable();
+            $table->string('password')->nullable();
+            $table->string('password_look')->nullable();
+            $table->string('nip_baru')->nullable();
+            $table->string('nip_lama')->nullable();
             $table->integer('nomor_npwp')->nullable();
             $table->string('tanggal_npwp')->nullable();
             $table->integer('nomor_ktp')->nullable();
             $table->integer('nomor_bpjs')->nullable();
             $table->string('tanggal_bpjs')->nullable();
             $table->longText('alamat')->nullable();
-            $table->string('gander')->nullable();
-            $table->string('tampat_lahir')->nullable();
+            $table->string('jenis_kelamin')->nullable();
+            $table->string('tempat_lahir')->nullable();
             $table->string('tanggal_lahir')->nullable();
-            //$table->string('golongan_pangkat')->nullable();
-            //$table->string('pendidikan')->nullable();
             $table->string('jabatan')->nullable();
             $table->string('unit_kerja')->nullable();
             $table->string('sub_unit_kerja')->nullable();
+            $table->longText('picture')->nullable();
+            $table->string('system_lock')->nullable();
+            $table->string('access')->nullable();
             $table->timestamps();
         });
     }

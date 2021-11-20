@@ -13,14 +13,15 @@ class Keluarga extends Migration
      */
     public function up()
     {
-        Schema::create('keluarga', function (Blueprint $table) {
+        Schema::create('riwayat_keluarga', function (Blueprint $table) {
             $table->id();
-            $table->integer('nip_baru')->nullable();
+            $table->bigInteger('nip_baru')->nullable();
             $table->string('nama_keluarga')->nullable();
-            $table->string('status')->nullable();
-            $table->integer('nomor_ktp')->nullable();
-            $table->string('pendidkan')->nullable();
-            $table->string('keterangan')->nullable();
+            $table->string('tempat_lahir_keluarga')->nullable();
+            $table->string('tanggal_lahir_keluarga')->nullable();
+            $table->string('status_keluarga')->nullable();
+            $table->bigInteger('nomor_ktp_keluarga')->nullable();
+            $table->string('pendidikan_keluarga')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class Keluarga extends Migration
      */
     public function down()
     {
-        Schema::drop('keluarga');
+        Schema::drop('riwayat_keluarga');
     }
 }

@@ -13,9 +13,9 @@ class Pendidikan extends Migration
      */
     public function up()
     {
-        Schema::create('pendidikan', function (Blueprint $table) {
+        Schema::create('riwayat_pendidikan_formal', function (Blueprint $table) {
             $table->id();
-            $table->integer('nip_baru')->nullable();
+            $table->bigInteger('nip_baru')->nullable();
             $table->string('nama_sekolah')->nullable();
             $table->string('tingkat')->nullable();
             $table->integer('tahun_lulus')->nullable();
@@ -32,6 +32,6 @@ class Pendidikan extends Migration
      */
     public function down()
     {
-        Schema::drop('pendidikan');
+        Schema::drop('riwayat_pendidikan_formal');
     }
 }

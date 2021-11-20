@@ -13,14 +13,14 @@ class PendidikanLatihan extends Migration
      */
     public function up()
     {
-        Schema::create('pendidikan_latihan', function (Blueprint $table) {
+        Schema::create('riwayat_pendidikan_non_formal', function (Blueprint $table) {
             $table->id();
-            $table->integer('nip_baru')->nullable();
+            $table->bigInteger('nip_baru')->nullable();
             $table->string('nama_diklat')->nullable();
             $table->string('tanggal_diklat_awal')->nullable();
             $table->string('tanggal_diklat_akhir')->nullable();
             $table->string('kategori')->nullable();
-            $table->string('nomor_surat')->nullable();
+            $table->string('nomor_surat_diklat')->nullable();
             $table->timestamps();
         });
 
@@ -33,6 +33,6 @@ class PendidikanLatihan extends Migration
      */
     public function down()
     {
-        Schema::drop('pendidikan_latihan');
+        Schema::drop('riwayat_pendidikan_non_formal');
     }
 }
