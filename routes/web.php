@@ -29,8 +29,8 @@ Route::get('/data-unit-kerja', function () {
     return view('layouts.page.unit-kerja');
 })->middleware(['auth'])->name('unit_kerja');
 
-Route::get('/edit-profil', function () {
-    return view('layouts.page.profil-edit');
-})->middleware(['auth'])->name('edit_profil');
+Route::get('/user', function () {
+    return view('layouts.page.user-account');
+})->middleware(['auth'])->name('user-account');
 
 require __DIR__.'/auth.php';
