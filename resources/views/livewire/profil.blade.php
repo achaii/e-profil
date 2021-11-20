@@ -128,23 +128,29 @@
                                 <select wire:model.defer="jabatan"
                                     class="rounded-md w-full shadow-sm hover:bg-blue-50 focus:ring-opacity-50 focus:ring-blue-300 border-gray-200 focus:ring">
                                     <option value="">-</option>
-                                    <option value="Pria">Pria</option>
+                                    @foreach ($getJabatan as $jabatan)
+                                        <option value="{{$jabatan->nama_jabatan}}">{{$jabatan->nama_jabatan}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-span-12 p-2">
                                 <label class="block font-medium lg:text-md text-sm text-gray-700">Unit Kerja</label>
-                                <select wire:model.defer="unit_kerja"
+                                <select wire:model="unit_kerja"
                                     class="rounded-md w-full shadow-sm hover:bg-blue-50 focus:ring-opacity-50 focus:ring-blue-300 border-gray-200 focus:ring">
                                     <option value="">-</option>
-                                    <option value="Pria">Pria</option>
+                                    @foreach ($getUnitKerja as $unitKerja)
+                                    <option value="{{$unitKerja->id}}">{{$unitKerja->unit_kerja}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-span-12 p-2">
                                 <label class="block font-medium lg:text-md text-sm text-gray-700">Sub Unit Kerja</label>
-                                <select wire:model.defer="sub_unit_kerja"
+                                <select wire:model="sub_unit_kerja" @if($unit_kerja == null) readonly @endif
                                     class="rounded-md w-full shadow-sm hover:bg-blue-50 focus:ring-opacity-50 focus:ring-blue-300 border-gray-200 focus:ring">
                                     <option value="">-</option>
-                                    <option value="Pria">Pria</option>
+                                    @foreach ($getSubUnitKerja as $subUnitKerja)
+                                    <option value="{{$subUnitKerja->id}}">{{$subUnitKerja->unit_kerja}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-span-12 p-2">

@@ -75,8 +75,8 @@ class Profil extends Component
         }elseif(Auth::user()->access == 'user'){
             $this->authUser = Auth::user()->id;
         }
+        
         $getUsersByID = DB::table('users')->where('id',$this->authUser)->first();
-
 
         $this->nama = $getUsersByID->nama;
         $this->nip_baru = $getUsersByID->nip_baru;
@@ -103,6 +103,9 @@ class Profil extends Component
             'getRiwayatKeluarga' => DB::table('riwayat_keluarga')->where('nip_baru',$this->nip_baru)->get(),
             'getRiwayatJabatan' => DB::table('riwayat_jabatan')->where('nip_baru',$this->nip_baru)->get(),
             'getRiwayatPangkatGolongan' => DB::table('riwayat_pangkat_golongan')->where('nip_baru',$this->nip_baru)->get(),
+            'getJabatan' => DB::table('jabatan')->get(),
+            'getUnitKerja' => DB::table('unit_kerja')->where('kategori_unit_kerja','unit')->get(),
+            'getSubUnitKerja' => DB::table('unit_kerja')->where('kategori_unit_kerja','sub unit')->where('id_unit_kerja',$this->unit_kerja)->get()
         ]);
     }
 
