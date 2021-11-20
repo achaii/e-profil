@@ -25,7 +25,7 @@
             </div>
             <div class="col-span-12 pt-2">
                 <div class="lg:overflow-hidden overflow-auto">
-                    <table class="table-fixed lg:w-full md:w-full w-max">
+                    <table class="table-responsive lg:w-full md:w-full w-max">
                         <thead>
                             <tr class="bg-gray-200 text-sm border-b-2 text-gray-600 border-gray-400">
                                 <th class="py-2 px-3 text-left w-max rounded-tl-md">Nama Pegawai & NIP</th>

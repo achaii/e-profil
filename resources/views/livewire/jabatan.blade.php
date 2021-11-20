@@ -25,10 +25,10 @@
             </div>
             <div class="col-span-12 pt-2">
                 <div class="lg:overflow-hidden overflow-auto">
-                    <table class="table-fixed lg:w-full md:w-full w-max">
+                    <table class="table-fixed lg:w-full md:w-full w-full">
                         <thead>
                             <tr class="bg-gray-200 text-sm border-b-2 text-gray-600 border-gray-400">
-                                <th class="py-2 px-3 text-left w-max rounded-tl-md">Nama Jabatan</th>
+                                <th class="py-2 px-3 text-left w-full rounded-tl-md">Nama Jabatan</th>
                                 <th class="py-2 px-3 text-center w-24 rounded-tr-md">#</th>
                             </tr>
                         </thead>
@@ -41,9 +41,9 @@
                                     </p>
                                 </td>
                                 <td class="py-3 px-3">
-                                    <div class="flex m-2">
+                                    <div class="flex flex-row m-2">
                                         <button wire:click="showJabatan({{$jabatan->id}},'edit')"
-                                            class="flex-1 mr-1 bg-blue-500 w-6 h-6 p-1 text-sm font-bold rounded text-white hover:bg-blue-600 inline-flex items-center justify-center">
+                                            class="mr-1 bg-blue-500 w-6 h-6 p-1 text-sm font-bold rounded text-white hover:bg-blue-600 inline-flex items-center justify-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                 viewBox="0 0 22 22" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -52,7 +52,7 @@
                                         </button>
                                         <button  wire:click="deleteJabatan({{$jabatan->id}})"
                                             onclick="confirm('Yakin anda ingin menghapus ({{$jabatan->nama_jabatan}}) ?') || event.stopImmediatePropagation()"
-                                            class="flex-1 bg-red-500 w-6 h-6 p-1 text-sm font-bold rounded text-white hover:bg-red-600 inline-flex items-center justify-center">
+                                            class="bg-red-500 w-6 h-6 p-1 text-sm font-bold rounded text-white hover:bg-red-600 inline-flex items-center justify-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                 viewBox="0 0 22 22" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -71,7 +71,11 @@ class Profil extends Component
 
     public function mount(){
         if(Auth::user()->access == 'admin'){
-            $this->authUser = Session::get('id');
+            if(Session::get('id') == null){
+                $this->authUser = Auth::user()->id;
+            }else{
+                $this->authUser = Session::get('id');
+            }
         }elseif(Auth::user()->access == 'user'){
             $this->authUser = Auth::user()->id;
         }

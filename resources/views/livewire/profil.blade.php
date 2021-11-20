@@ -382,7 +382,7 @@
                 </div>
                 <div class="h-max flex flex-row p-2">
                     <div class="col-span-12 overflow-auto lg:overflow-hidden">
-                        <table class="table-fixed lg:w-full sm:w-full w-max pb-10">
+                        <table class="table-fixed lg:w-full sm:w-full w-full pb-10">
                             <thead>
                                 <tr
                                     class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal border-b-2 border-gray-400">
