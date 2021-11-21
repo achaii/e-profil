@@ -24,6 +24,7 @@ class UnitKerja extends Component
     public $id_unit_kerja;
     public $cari;
     protected $queryString = ['cari'];
+
     public function render()
     {
         $getUnitKerja = DB::table('unit_kerja')

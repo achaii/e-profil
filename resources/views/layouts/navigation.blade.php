@@ -11,10 +11,11 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex uppercase">
                     <x-nav-link :href="route('profil')" :active="request()->routeIs('profil')">
                         {{ __('Profil Pegawai') }}
                     </x-nav-link>
+                    @if(Auth::user()->access == 'admin')
                     <x-nav-link :href="route('pegawai')" :active="request()->routeIs('pegawai')">
                         {{ __('Data Pegawai') }}
                     </x-nav-link>
@@ -24,6 +25,7 @@
                     <x-nav-link :href="route('unit_kerja')" :active="request()->routeIs('unit_kerja')">
                         {{ __('Data Unit Kerja') }}
                     </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -32,8 +34,17 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div>{{ Auth::user()->nama }}</div>
+                            class="flex flex-row items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            <div class="h-8 w-8 mr-1">
+                                @if(Auth::user()->picture)
+                                <img src="{{Auth::user()->picture}}" alt=""
+                                    class="rounded-full border-2 border-gray-200 object-cover h-8 w-8">
+                                @else
+                                <img src="https://ui-avatars.com/api/name={{Auth::user()->nama}}&color=7F9CF5&background=EBF4FF" alt=""
+                                    class="rounded-full border-2 border-gray-200 object-fit h-8 w-8">
+                                @endif
+                            </div>
+                            <div class="uppercase font-extrabold">{{ Auth::user()->nama }}</div>
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
@@ -48,12 +59,12 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                        <x-dropdown-link :href="route('user-account')">
+                        <x-dropdown-link class="uppercase" :href="route('user-account')" :active="request()->routeIs('user-account')">
                             {{ __('User Account') }}
                         </x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                            <x-dropdown-link class="uppercase" :href="route('logout')" onclick="event.preventDefault();
                                 this.closest('form').submit();">
                                 {{ __('Logout') }}
                             </x-dropdown-link>
@@ -79,11 +90,12 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden uppercase">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('profil')" :active="request()->routeIs('profil')">
                 {{ __('Profil') }}
             </x-responsive-nav-link>
+            @if(Auth::user()->access == 'admin')
             <x-responsive-nav-link :href="route('pegawai')" :active="request()->routeIs('pegawai')">
                 {{ __('Data Pegawai') }}
             </x-responsive-nav-link>
@@ -93,6 +105,7 @@
             <x-responsive-nav-link :href="route('unit_kerja')" :active="request()->routeIs('unit_kerja')">
                 {{ __('Data Unit Kerja') }}
             </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
@@ -103,7 +116,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('user-account')">
+                <x-responsive-nav-link :href="route('user-account')" :active="request()->routeIs('user-account')">
                     {{ __('User Account') }}
                 </x-responsive-nav-link>
                 <!-- Authentication -->

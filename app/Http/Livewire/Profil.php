@@ -113,6 +113,12 @@ class Profil extends Component
         ]);
     }
 
+    public function rollback(){
+        sleep(1);
+        Session::put('id',null);
+        $this->mount();
+    }
+
     public function switchModalGlobal($nip,$menu){
         $this->menu = $menu;
         $this->addModalGlobal = true;

@@ -29,11 +29,12 @@
                         <thead>
                             <tr class="bg-gray-200 text-sm border-b-2 text-gray-600 border-gray-400">
                                 <th class="py-2 px-3 text-left w-max rounded-tl-md">Nama Pegawai & NIP</th>
-                                <th class="py-2 px-3 text-left w-max">Unit Kerja</th>
+                                <th class="py-2 px-3 text-left w-max">Unit Kerja Utama</th>
                                 <th class="py-2 px-3 text-center w-24 rounded-tr-md">#</th>
                             </tr>
                         </thead>
                         <tbody>
+                            {{-- @dd($getPegawai) --}}
                             @forelse ($getPegawai as $pegawai)
                             <tr class="hover:bg-blue-100 border-2 border-gray-200">
                                 <td class="py-3 px-2">
@@ -45,7 +46,8 @@
                                     </p>
                                 </td>
                                 <td class="py-3 px-2">
-                                    {{$pegawai->unit_kerja}}
+                                    <div class="text-ms">{{$pegawai->unita}}</div>
+                                    <div class="text-ms">{{$pegawai->unitb}}</div>
                                 </td>
                                 <td class="py-3 px-3">
                                     <div class="flex">
@@ -118,11 +120,23 @@
                                 class="rounded-md w-full shadow-sm hover:bg-blue-50 focus:ring-opacity-50 focus:ring-blue-300 border-gray-200 focus:ring">
                         </div>
                         <div class="col-span-12 p-2">
-                            <label class="block font-medium text-md text-gray-700">Bagian</label>
-                            <select wire:model.defer="unit_kerja" required
+                            <label class="block font-medium text-md text-gray-700">Unit Kerja</label>
+                            <select wire:model="unit_kerja" required
                                 class="rounded-md w-full shadow-sm hover:bg-blue-50 focus:ring-opacity-50 focus:ring-blue-300 border-gray-200 focus:ring">
                                 <option value="">-</option>
-                                <option value="SD">SD</option>
+                                @foreach ($getUnitKerja as $unitKerja)
+                                <option value="{{$unitKerja->id}}">{{$unitKerja->unit_kerja}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-span-12 p-2">
+                            <label class="block font-medium lg:text-md text-sm text-gray-700">Sub Unit Kerja</label>
+                            <select wire:model="sub_unit_kerja" @if($unit_kerja == null) readonly @endif
+                                class="rounded-md w-full shadow-sm hover:bg-blue-50 focus:ring-opacity-50 focus:ring-blue-300 border-gray-200 focus:ring">
+                                <option value="">-</option>
+                                @foreach ($getSubUnitKerja as $subUnitKerja)
+                                <option value="{{$subUnitKerja->id}}">{{$subUnitKerja->unit_kerja}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-span-12 p-3">

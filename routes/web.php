@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+//use App\Http\Middleware\UserRedirect;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,21 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/profil', function () {
-    return view('dashboard');
+Route::get('/', function () {
+    return view('layouts.page.profil');
 })->middleware(['auth'])->name('profil');
 
 Route::get('/data-pegawai', function () {
     return view('layouts.page.pegawai');
-})->middleware(['auth'])->name('pegawai');
+})->middleware(['auth','auth.user'])->name('pegawai');
 
 Route::get('/data-jabatan', function () {
     return view('layouts.page.jabatan');
-})->middleware(['auth'])->name('jabatan');
+})->middleware(['auth','auth.user'])->name('jabatan');
 
 Route::get('/data-unit-kerja', function () {
     return view('layouts.page.unit-kerja');
-})->middleware(['auth'])->name('unit_kerja');
+})->middleware(['auth','auth.user'])->name('unit_kerja');
 
 Route::get('/user', function () {
     return view('layouts.page.user-account');

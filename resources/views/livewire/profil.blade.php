@@ -1,10 +1,15 @@
 <div>
+    @if(Session::get('id'))
+    <div class="col-span-12 my-2 absolute">
+        <button wire:click="rollback" class="bg-red-500 w-full p-2 rounded-lg text-white">ROLLBACK PROFIL</button>
+    </div>
+    @endif
     <div class="flex mx-auto lg:h-52 lg:w-52 z-10 relative lg:-my-24 w-36 h-36 -my-20">
         @if($picture)
         <img src="{{$picture}}" alt="" class="rounded-full border-4 border-white object-cover w-36 h-36 lg:h-52 lg:w-52">
         @else
         <img src="https://ui-avatars.com/api/name={{$nama}}&color=7F9CF5&background=EBF4FF" alt=""
-            class="rounded-full border-4 border-white object-fit">
+            class="rounded-full border-4 border-white object-fit w-36 h-36 lg:h-52 lg:w-52">
         @endif
     </div>
     <div class="bg-white overflow-y-hidden shadow-xl sm:rounded-lg relative"

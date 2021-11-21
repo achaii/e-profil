@@ -40,13 +40,13 @@
                                     <p class="uppercase text-sm">
                                         {{$unitKerja->unit_kerja}}
                                         <span
-                                            class="p-1 bg-green-200 rounded-lg shadow text-sm text-gray-800">{{$unitKerja->kategori_unit_kerja}}</span>
+                                            class="p-1 bg-green-200 rounded-lg text-xs text-gray-800">{{$unitKerja->kategori_unit_kerja}}</span>
                                     </p>
                                     @else
                                     <p class="uppercase text-sm pl-5">
                                         {{$unitKerja->unit_kerja}}
                                         <span
-                                            class="p-1 bg-red-200 rounded-lg shadow text-sm text-gray-800">{{$unitKerja->kategori_unit_kerja}}</span>
+                                            class="p-1 bg-red-200 rounded-lg text-xs text-gray-800">{{$unitKerja->kategori_unit_kerja}}</span>
                                     </p>
                                     @endif
                                 </td>
